@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2019년 영화검색</title>
+
+</head>
+
+<body>
+    <h1> 2019년 영화 검색</h1>
+
+
+    {% if latest_movie_list %}
+        <ul>
+            {% for movie in latest_movie_list %}
+                <li><a href="/movies/{{ movie.id }}/"><img src = "{% static '2.png' %}"width="100">&nbsp;{{ movie.movie_title }}&nbsp;{{ movie.date }}&nbsp;</a></li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <p>No movies are available.</p>
+
+    {% endif %}
+
+</body>
+</html>

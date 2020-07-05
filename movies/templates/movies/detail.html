@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> {{ movie.movies.title }} </h1>
+
+<ul>
+{% for information in movies %}
+    <li>{{ movie.image }} <br> {{ information.rating }}
+        <br> {{ information.actors }} <br> {{ information.story }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'movies:detail' movie.id %}">Vote again?</a>
+</body>
+</html>
