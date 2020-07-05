@@ -3,18 +3,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>2019년 영화검색</title>
+    <title>영화 정보 웹사이트</title>
+<style>
+    a { color: black; text-decoration:none }
 
+    html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+.contents-wrap {
+   min-height:100%;
+   position:relative;
+   padding-bottom:100px;/* footer height */
+}
+header {
+	width:100%;
+	height:80px;
+	display: flex;
+	align-items: center;
+	background-color:#D6D2D2;
+	justify-content: space-between;
+}
+.footer {
+   width:100%;
+   height:70px;
+   position:absolute;
+   bottom:0;
+   background:#D6D2D2;
+  text-align: center;
+  color: white;
+}
+</style>
 </head>
 
 <body>
-    <h1> 2019년 영화 검색</h1>
+    <center><div id="header"><font size="30"> <a href="/movies/"> 영화 정보 웹사이트</a></font></div></center>
+    <br>
+    <center><form action="" method="get">
+  <input type="text" name="q" value="{{ q }}">
+  <input type="submit" value="검색"></center>
+</form>
 
 
     {% if latest_movie_list %}
         <ul>
             {% for movie in latest_movie_list %}
-                <li><a href="/movies/{{ movie.id }}/"><img src = "{% static '2.png' %}"width="100">&nbsp;{{ movie.movie_title }}&nbsp;{{ movie.date }}&nbsp;</a></li>
+                <div><font size="6"><a href="/movies/{{ movie.id }}/">{{ forloop.counter }}<img src = "{%static '1.png'%}"width="100" align="middle">&nbsp;{{ movie.movie_title }}&nbsp;({{ movie.date }})&nbsp;</a></font></div>
             {% endfor %}
         </ul>
 
@@ -22,6 +58,6 @@
         <p>No movies are available.</p>
 
     {% endif %}
-
+<footer class="footer">&copy;201425016 김명호  </footer>
 </body>
 </html>
