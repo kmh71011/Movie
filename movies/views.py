@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 def main(request):
-    latest_movie_list = Movie.objects.all().order_by('-pub_date')[:5]
+    latest_movie_list = Movie.objects.all().order_by('-pub_date')[:20]
     context = {'latest_movie_list': latest_movie_list}
     print(latest_movie_list)
     return render(request, 'movies/main.html', context)
